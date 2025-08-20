@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Math QR Code Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f7ff;
+      color: #222;
+    }
+    h1 {
+      color: #0055aa;
+      margin-top: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      border: 2px solid #0055aa;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #0055aa;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #003f7a;
+    }
+    #qrcode {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔲 Math QR Code Generator 🔲</h1>
+  <p>Type a math problem or fun fact, then click Generate!</p>
+  
+  <input id="text" type="text" placeholder="e.g. 25 × 4 = ?">
+  <button onclick="makeQR()">Generate QR</button>
+  
+  <div id="qrcode"></div>
+
+  <script>
+    function makeQR() {
+      document.getElementById("qrcode").innerHTML = "";
+      var text = document.getElementById("text").value;
+      if (text.trim() === "") {
+        alert("Please enter something!");
+        return;
+      }
+      new QRCode(document.getElementById("qrcode"), {
+        text: text,
+        width: 200,
+        height: 200
+      });
+    }
+  </script>
+</bod
